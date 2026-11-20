@@ -81,17 +81,19 @@ locals {
 
 The following requirements are needed by this module:
 
-- [[requirement_docker]] <<requirement_docker,docker>> (>= 2.23.1)
+- [[requirement_terraform]] <<requirement_terraform,terraform>> (>= 1.9.0)
 
-- [[requirement_kind]] <<requirement_kind,kind>> (>= 0.1.0)
+- [[requirement_docker]] <<requirement_docker,docker>> (~> 4.7)
+
+- [[requirement_kind]] <<requirement_kind,kind>> (~> 0.13)
 
 === Providers
 
 The following providers are used by this module:
 
-- [[provider_kind]] <<provider_kind,kind>> (>= 0.1.0)
+- [[provider_kind]] <<provider_kind,kind>> (0.13.0)
 
-- [[provider_docker]] <<provider_docker,docker>> (>= 2.23.1)
+- [[provider_docker]] <<provider_docker,docker>> (4.7.0)
 
 === Resources
 
@@ -170,8 +172,9 @@ Description: Kind IPv4 Docker network subnet.
 [cols="a,a",options="header,autowidth"]
 |===
 |Name |Version
-|[[requirement_docker]] <<requirement_docker,docker>> |>= 2.23.1
-|[[requirement_kind]] <<requirement_kind,kind>> |>= 0.1.0
+|[[requirement_terraform]] <<requirement_terraform,terraform>> |>= 1.9.0
+|[[requirement_docker]] <<requirement_docker,docker>> |~> 4.7
+|[[requirement_kind]] <<requirement_kind,kind>> |~> 0.13
 |===
 
 = Providers
@@ -179,8 +182,8 @@ Description: Kind IPv4 Docker network subnet.
 [cols="a,a",options="header,autowidth"]
 |===
 |Name |Version
-|[[provider_kind]] <<provider_kind,kind>> |>= 0.1.0
-|[[provider_docker]] <<provider_docker,docker>> |>= 2.23.1
+|[[provider_kind]] <<provider_kind,kind>> |0.13.0
+|[[provider_docker]] <<provider_docker,docker>> |4.7.0
 |===
 
 = Resources
