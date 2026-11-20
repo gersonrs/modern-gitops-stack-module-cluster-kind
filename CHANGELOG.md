@@ -1,5 +1,16 @@
 # Changelog
 
+## [3.0.0](https://github.com/gersonrs/modern-gitops-stack-module-cluster-kind/compare/v2.5.0...v3.0.0) (2026-11-20)
+
+
+### ⚠ BREAKING CHANGES
+
+* provider major bumps and a stricter Terraform baseline; consumers must run `terraform init -upgrade`.
+
+### 🚀 New Features
+
+* upgrade charts, providers and Terraform baseline ([#14](https://github.com/gersonrs/modern-gitops-stack-module-cluster-kind/issues/14)) ([bb79080](https://github.com/gersonrs/modern-gitops-stack-module-cluster-kind/commit/bb790805c53dfa45b58d43beca1138ecac2ce71c))
+
 ## [2.5.0](https://github.com/GersonRS/modern-gitops-stack-module-cluster-kind/compare/v2.4.2...v2.5.0) (2026-01-22)
 
 
