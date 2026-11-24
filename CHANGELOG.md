@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.1](https://github.com/gersonrs/modern-gitops-stack-module-cluster-kind/compare/v3.0.0...v3.0.1) (2026-11-24)
+
+
+### 📚 Documentation
+
+* add usage and dependencies to the module documentation ([#16](https://github.com/gersonrs/modern-gitops-stack-module-cluster-kind/issues/16)) ([3efa53a](https://github.com/gersonrs/modern-gitops-stack-module-cluster-kind/commit/3efa53a851cf7bde9d3b134c41d2e1a2e872ca04))
+
 ## [3.0.0](https://github.com/gersonrs/modern-gitops-stack-module-cluster-kind/compare/v2.5.0...v3.0.0) (2026-11-20)
 
 
