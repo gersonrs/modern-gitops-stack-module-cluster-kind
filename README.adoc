@@ -1,80 +1,25 @@
 = modern-gitops-stack-module-cluster-kind
 
-A https://modern-gitops-stack.io[Modern Gitops Stack] module to deploy a KinD cluster based on Docker.
-
-This cluster module is mainly used to deploy a Kubernetes cluster used for testing and development as well as for onboarding new users of the Modern Gitops Stack.
-
-KinD is nothing more than a local Kubernetes cluster using Docker container "nodes". As such, it is required that you have Docker up and running on your machine (the documentation to install Docker is available here https://docs.docker.com/engine/install/[here]).
-
-TIP: An example of a deployment of the Modern Gitops Stack using KinD is available https://github.com/GersonRS/modern-gitops-stack/tree/main/examples/kind[here] as well as an accompanying xref:ROOT:ROOT:tutorials/deploy_kind.adoc[quick tutorial].
+A https://modern-gitops-stack.io[Modern GitOps Stack] module to deploy a local KinD cluster, used to exercise the whole stack on a single machine.
 
 == Usage
 
-This module can be declared by adding the following block on your Terraform configuration:
+This module can be declared by adding the following block to your Terraform configuration:
 
 [source,terraform]
 ----
-module "kind" {
-  source = "git::https://github.com/GersonRS/modern-gitops-stack-module-kind.git?ref=<RELEASE>"
+module "cluster-kind" {
+  source = "git::https://github.com/GersonRS/modern-gitops-stack-module-cluster-kind.git?ref=<RELEASE>"
 
-  cluster_name = local.cluster_name
-}
-----
-
-You can configure the version of Kubernetes by passing the variable `kubernetes_version`. This variable is nothing more than the tag of the image that is to be deployed. You can see the usable versions in https://hub.docker.com/r/kindest/node/tags[Docker Hub]. 
-
-[source,terraform]
-----
-module "kind" {
-  source = "git::https://github.com/GersonRS/modern-gitops-stack-module-kind.git?ref=<RELEASE>"
-
-  cluster_name = local.cluster_name
-
-  kubernetes_version = "1.29.1"
-}
-----
-
-By default, this module deploys a cluster with a control plane node and 3 worker nodes. If you want to deploy one more worker node, you can do it like this:
-
-[source,terraform]
-----
-module "kind" {
-  source = "git::https://github.com/GersonRS/modern-gitops-stack-module-kind.git?ref=<RELEASE>"
-
-  cluster_name = local.cluster_name
-
-  nodes = [
-    {
-      "platform" = "modern-gitops-stack"
-    },
-    {
-      "platform" = "modern-gitops-stack"
-    },
-    {
-      "platform" = "modern-gitops-stack"
-    },
-    {
-      "platform" = "modern-gitops-stack"
-    },
-  ]
+  cluster_name   = local.cluster_name
+  base_domain    = local.base_domain
+  subdomain      = local.subdomain
+  cluster_issuer = local.cluster_issuer
+  app_autosync   = local.app_autosync
 }
 ----
 
 == Technical Reference
-
-=== Dependencies
-
-Obviously, since this module deploys the cluster, it does not depend on any other module of the Modern Gitops Stack. The only thing you'll probably want to configure are some `locals` with some common variables used on all the modules:
-
-[source,terraform]
-----
-locals {
-  kubernetes_version     = "v1.29.0"
-  cluster_name           = "YOUR_CLUSTER_NAME"
-  base_domain            = format("%s.nip.io", replace(module.traefik.external_ip, ".", "-"))
-  cluster_issuer         = "ca-issuer"
-}
-----
 
 // BEGIN_TF_DOCS
 === Requirements
